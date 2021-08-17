@@ -1,7 +1,7 @@
 package router
 
 import (
-	"github.com/boydmeyer/bond/handler"
+	"github.com/boydmeyer/bond-go/handler"
 	"github.com/gorilla/mux"
 )
 

@@ -6,7 +6,7 @@ import "encoding/json"
 EXAMPLE EVENT
 {
 	"event": "message",
-	"data": "ALL DATA HERE"
+	"data": "data"
 }
 */
 

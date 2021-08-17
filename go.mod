@@ -1,4 +1,4 @@
-module github.com/boydmeyer/bond
+module github.com/boydmeyer/bond-go
 
 go 1.16
 

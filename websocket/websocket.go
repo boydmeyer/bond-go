@@ -5,7 +5,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/boydmeyer/bond/event"
+	"github.com/boydmeyer/bond-go/event"
 	"github.com/gorilla/websocket"
 )
 
