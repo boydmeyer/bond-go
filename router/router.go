@@ -5,7 +5,12 @@ import (
 	"github.com/gorilla/mux"
 )
 
-func Setup(r *mux.Router) {
-	r.HandleFunc("/", handler.Home)
-	r.HandleFunc("/ws", handler.Websocket)
+//Init initiates a mux router and implements endpoints.
+func Init() *mux.Router {
+	mr := mux.NewRouter()
+
+	mr.HandleFunc("/", handler.Home)
+	mr.HandleFunc("/ws", handler.Websocket)
+
+	return mr
 }

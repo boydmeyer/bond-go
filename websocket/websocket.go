@@ -15,13 +15,15 @@ var upgrader = websocket.Upgrader{
 	CheckOrigin:     func(r *http.Request) bool { return true },
 }
 
+//WebSocket represents a WebSocket connection.
 type WebSocket struct {
 	Conn   *websocket.Conn
 	Out    chan []byte
 	In     chan []byte
-	Events map[string]event.EventHandler
+	Events map[string]event.Handler
 }
 
+//New creates a new Websocket struct
 func New(w http.ResponseWriter, r *http.Request) (*WebSocket, error) {
 	conn, err := upgrader.Upgrade(w, r, nil)
 	if err != nil {
@@ -33,7 +35,7 @@ func New(w http.ResponseWriter, r *http.Request) (*WebSocket, error) {
 		Conn:   conn,
 		Out:    make(chan []byte),
 		In:     make(chan []byte),
-		Events: make(map[string]event.EventHandler),
+		Events: make(map[string]event.Handler),
 	}
 
 	go ws.Reader()
@@ -42,6 +44,7 @@ func New(w http.ResponseWriter, r *http.Request) (*WebSocket, error) {
 	return ws, nil
 }
 
+//Reader reads messages sent over a websocket connection
 func (ws *WebSocket) Reader() {
 	defer func() {
 		ws.Conn.Close()
@@ -69,6 +72,7 @@ func (ws *WebSocket) Reader() {
 
 }
 
+//Writer writes messages over the websocket connection
 func (ws *WebSocket) Writer() {
 	for {
 		select {
@@ -87,7 +91,8 @@ func (ws *WebSocket) Writer() {
 	}
 }
 
-func (ws *WebSocket) On(eventName string, action event.EventHandler) *WebSocket {
+//On implements an Event on a websocket connection
+func (ws *WebSocket) On(eventName string, action event.Handler) *WebSocket {
 	ws.Events[eventName] = action
 	return ws
 }

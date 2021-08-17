@@ -8,6 +8,7 @@ import (
 	"github.com/boydmeyer/bond-go/websocket"
 )
 
+//Websocket is the net/http handler for the websocket endpoint.
 func Websocket(w http.ResponseWriter, r *http.Request) {
 	ws, err := websocket.New(w, r)
 	if err != nil {
@@ -16,7 +17,7 @@ func Websocket(w http.ResponseWriter, r *http.Request) {
 	}
 
 	/*
-		Send other user a message
+		Send other users a message
 	*/
 	ws.On("message", func(e *event.Event) {
 		log.Printf("Message received: %s", e.Data.(string))

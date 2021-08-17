@@ -4,12 +4,10 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/boydmeyer/bond/router"
-	"github.com/gorilla/mux"
+	"github.com/boydmeyer/bond-go/router"
 )
 
 func main() {
-	mr := mux.NewRouter()
-	router.Setup(mr)
-	log.Fatal(http.ListenAndServe(":8080", mr))
+	r := router.Init()
+	log.Fatal(http.ListenAndServe(":8080", r))
 }
