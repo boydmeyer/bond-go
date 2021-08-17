@@ -4,8 +4,8 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/boydmeyer/bond-go/event"
 	"github.com/boydmeyer/bond-go/websocket"
+	"github.com/boydmeyer/bond-go/websocket/event"
 )
 
 //Websocket is the net/http handler for the websocket endpoint.

@@ -1,3 +1,4 @@
+//websocket package implements gorilla websocket into a struct.
 package websocket
 
 import (
@@ -5,7 +6,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/boydmeyer/bond-go/event"
+	"github.com/boydmeyer/bond-go/websocket/event"
 	"github.com/gorilla/websocket"
 )
 

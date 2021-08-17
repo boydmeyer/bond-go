@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 
@@ -9,5 +10,6 @@ import (
 
 func main() {
 	r := router.Init()
+	fmt.Printf("Listening on port 8080\t->\thttp://localhost:8080/")
 	log.Fatal(http.ListenAndServe(":8080", r))
 }
