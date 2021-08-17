@@ -26,7 +26,7 @@ func New(rawData []byte) (*Event, error) {
 	return event, err
 }
 
-//Raw creates raw json data from a bytes.
+//Raw creates raw json data from an array of bytes.
 func (e *Event) Raw() []byte {
 	raw, _ := json.Marshal(e)
 	return raw
